@@ -209,7 +209,7 @@ const Grid = require('gridfs-stream');
 const crypto = require('crypto');
 const path = require('path');
 const methodOverride = require('method-override');
-const Schema = mongoose.Schema;
+//const Schema = mongoose.Schema;
 
 const app = express();
 
@@ -264,7 +264,7 @@ const storage = new GridFsStorage({
 
 const upload = multer({ storage });
 
-const NewsSchema = new Schema({
+/*const NewsSchema = new Schema({
   title : {
     type: String
   },
@@ -273,7 +273,7 @@ const NewsSchema = new Schema({
   }
 });
 
-News = mongoose.model('news', NewsSchema);
+News = mongoose.model('news', NewsSchema);*/
 
 // @route GET /
 // @desc  Loads form
@@ -300,13 +300,13 @@ app.get('/',(req,res)=> {
 // @route POST /upload
 // @desc  Uploads file to DB
 app.post('/upload',upload.single('file'),(req,res)=> {
-  const news = new News({
+  /*const news = new News({
     title: req.body.title,
     fileID : req.file._id
   });
   news.save();
   console.log(news.title);
-  console.log(news.fileID);
+  console.log(news.fileID);*/
   res.redirect('/');
 });
 
